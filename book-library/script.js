@@ -10,3 +10,4 @@ class updateDom {
     element.classList.remove(selector);
   }
 }
+const DOM = new updateDom();
