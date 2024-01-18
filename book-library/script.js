@@ -11,3 +11,6 @@ class updateDom {
   }
 }
 const DOM = new updateDom();
+btnNewBook.addEventListener("click", function () {
+  DOM.showForm(form, "show");
+});
