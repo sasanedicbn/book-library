@@ -5,7 +5,7 @@
 }
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background: linear-gradient(to right, #f4f4f4, #cbcbcb);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -61,11 +61,11 @@ body {
   list-style-type: none;
   padding: 0;
 }
-
+/* FORM */
 .formado {
-  /* display: none; */
+  display: none;
   position: absolute;
-  right: 20px;
+  right: 25px;
   top: 100px; 
   width: 450px;
   background-color: #fff;
@@ -114,8 +114,6 @@ input {
   cursor: pointer;
   fill: #333;
 }
-
-
 
 /* FOOTER */
 .footer-description {
