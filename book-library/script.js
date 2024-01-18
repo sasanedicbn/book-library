@@ -14,3 +14,6 @@ const DOM = new updateDom();
 btnNewBook.addEventListener("click", function () {
   DOM.showForm(form, "show");
 });
+closeForm.addEventListener("click", function () {
+  DOM.hiddenForm(form, "show");
+});
