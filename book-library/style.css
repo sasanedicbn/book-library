@@ -12,6 +12,57 @@ body {
   overflow-x: hidden;
 }
 
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 85vh;
+  
+}
+
+.text__div {
+  text-align: center;
+}
+
+.heading__primary {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.heading__primary span {
+  color: #3498db;
+}
+
+.text__paragraph {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.button__new__book {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button__new__book:hover {
+  background-color: #2980b9;
+}
+
+.list__div {
+  width: 300px;
+}
+
+.ul__list {
+  list-style-type: none;
+  padding: 0;
+}
+
+
 
 
 /* FOOTER */
