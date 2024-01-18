@@ -63,15 +63,20 @@ body {
 }
 /* FORM */
 .formado {
-  display: none;
   position: absolute;
-  right: 25px;
+  right: -525px;
   top: 100px; 
   width: 450px;
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+  transition: all .5s ease-in-out
+}
+.show{
+  position: absolute;
+  right: 50px;
+  transition: all .5s ease-in-out
 }
 
 .form__box {
