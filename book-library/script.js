@@ -51,4 +51,11 @@ btnSubmitData.addEventListener("click", function (event) {
   const authorInput = document.getElementById("author").value;
   const nPagesInput = document.getElementById("nPages").value;
   const checkReadInput = document.getElementById("checkRead").checked;
+
+  const formData = {
+    title: titleInput,
+    author: authorInput,
+    numPages: nPagesInput,
+    read: checkReadInput,
+  };
 });
