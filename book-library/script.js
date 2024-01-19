@@ -43,3 +43,12 @@ btnNewBook.addEventListener("click", function () {
 closeForm.addEventListener("click", function () {
   DOM.hiddenForm(form, "show");
 });
+
+btnSubmitData.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  const titleInput = document.getElementById("title").value;
+  const authorInput = document.getElementById("author").value;
+  const nPagesInput = document.getElementById("nPages").value;
+  const checkReadInput = document.getElementById("checkRead").checked;
+});
