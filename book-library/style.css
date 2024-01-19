@@ -17,7 +17,6 @@ body {
   justify-content: space-around;
   align-items: center;
   height: 85vh;
-  
 }
 
 .text__div {
@@ -64,8 +63,8 @@ body {
 /* FORM */
 .formado {
   position: absolute;
-  right: -525px;
-  top: 100px; 
+  right: -500px;
+  top: 125px; 
   width: 450px;
   background-color: #fff;
   padding: 20px;
@@ -77,6 +76,13 @@ body {
   position: absolute;
   right: 50px;
   transition: all .5s ease-in-out
+}
+.up{
+ /* position: absolute;
+ top: 20px;
+ left: 33.2%; */
+ transform: translate(58.5%, -102.5%);
+ transition: all 1s ease-in-out
 }
 
 .form__box {
