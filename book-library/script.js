@@ -20,6 +20,10 @@ class dataForm {
   constructor() {
     this.books = [];
   }
+
+  getData(data) {
+    this.books.push(data);
+  }
 }
 
 const DOM = new updateDom();
