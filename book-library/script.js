@@ -16,6 +16,12 @@ class updateDom {
   }
 }
 
+class dataForm {
+  constructor() {
+    this.books = [];
+  }
+}
+
 const DOM = new updateDom();
 
 btnNewBook.addEventListener("click", function () {
