@@ -58,4 +58,13 @@ btnSubmitData.addEventListener("click", function (event) {
     numPages: nPagesInput,
     read: checkReadInput,
   };
+
+  data.getData(formData);
+
+  data.resetForm();
+
+  DOM.hiddenForm(form, "show");
+  DOM.moveHeaderup(title, "up");
+
+  console.log(data.books);
 });
