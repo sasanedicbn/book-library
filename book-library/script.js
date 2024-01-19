@@ -24,9 +24,17 @@ class dataForm {
   getData(data) {
     this.books.push(data);
   }
+
+  resetForm() {
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("nPages").value = "";
+    document.getElementById("checkRead").checked = false;
+  }
 }
 
 const DOM = new updateDom();
+const data = new dataForm();
 
 btnNewBook.addEventListener("click", function () {
   DOM.showForm(form, "show");
