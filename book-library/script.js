@@ -25,7 +25,11 @@ class updateDom {
         <p class='title'>Title: <br/><b>${data.title}</b></p>
         <p class='author'>Author: <br/><b>${data.author}</b></p>
         <p class='numOfPages'>Numbers of pages: <br/><b>${data.numPages}</b></p>
-      
+        <div class='btns'>
+        <button>${data.read ? "Read" : "Not Read"}</button>
+        <button>Delete</button>
+        <button>Change</button>
+        </div>
       `;
       ulList.appendChild(bookElement);
     });
