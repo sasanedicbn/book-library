@@ -65,6 +65,7 @@ btnSubmitData.addEventListener("click", function (event) {
 
   DOM.hiddenForm(form, "show");
   DOM.moveHeaderup(title, "up");
+  DOM.showBook(data.books);
 
   console.log(data.books);
 });
