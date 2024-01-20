@@ -14,6 +14,10 @@ class updateDom {
   moveHeaderup(element, selector) {
     element.classList.add(selector);
   }
+  showBook(books) {
+    const ulList = document.querySelector(".ul__list");
+    ulList.innerHTML = "";
+  }
 }
 
 class dataForm {
