@@ -17,6 +17,8 @@ class updateDom {
   showBook(books) {
     const ulList = document.querySelector(".ul__list");
     ulList.innerHTML = "";
+
+    books.forEach((data) => {});
   }
 }
 
