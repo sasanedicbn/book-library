@@ -5,6 +5,9 @@ const btnSubmitData = document.querySelector(".submit");
 const title = document.querySelector(".text__div");
 
 class updateDom {
+  constructor(id) {
+    this.id = Math.floor(Math.random() * 100000);
+  }
   showForm(element, selector) {
     element.classList.add(selector);
   }
