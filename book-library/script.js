@@ -18,7 +18,10 @@ class updateDom {
     const ulList = document.querySelector(".ul__list");
     ulList.innerHTML = "";
 
-    books.forEach((data) => {});
+    books.forEach((data) => {
+      const bookElement = document.createElement("div");
+      bookElement.classList.add("book");
+    });
   }
 }
 
