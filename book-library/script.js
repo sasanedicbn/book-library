@@ -56,6 +56,9 @@ class dataForm {
     document.getElementById("nPages").value = "";
     document.getElementById("checkRead").checked = false;
   }
+  deleteBook(id) {
+    this.books = this.books.filter((book) => book.id !== id);
+  }
 }
 
 const DOM = new updateDom();
