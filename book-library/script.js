@@ -22,6 +22,7 @@ class updateDom {
       const bookElement = document.createElement("div");
       bookElement.classList.add("book");
       bookElement.innerHTML = `
+      <li data-id="${this.id}">
         <p class='title'>Title: <br/><b>${data.title}</b></p>
         <p class='author'>Author: <br/><b>${data.author}</b></p>
         <p class='numOfPages'>Numbers of pages: <br/><b>${data.numPages}</b></p>
@@ -30,6 +31,7 @@ class updateDom {
         <button>Delete</button>
         <button>Change</button>
         </div>
+        </li>
       `;
       ulList.appendChild(bookElement);
     });
