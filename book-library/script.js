@@ -21,6 +21,13 @@ class updateDom {
     books.forEach((data) => {
       const bookElement = document.createElement("div");
       bookElement.classList.add("book");
+      bookElement.innerHTML = `
+        <p class='title'>Title: <br/><b>${data.title}</b></p>
+        <p class='author'>Author: <br/><b>${data.author}</b></p>
+        <p class='numOfPages'>Numbers of pages: <br/><b>${data.numPages}</b></p>
+      
+      `;
+      ulList.appendChild(bookElement);
     });
   }
 }
