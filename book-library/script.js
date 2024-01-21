@@ -15,7 +15,6 @@ class updateDom {
   moveHeaderup(element, selector) {
     element.classList.add(selector);
   }
-  // books
   showBook(books) {
     const ulList = document.querySelector(".ul__list");
     ulList.innerHTML = "";
@@ -60,8 +59,7 @@ class dataForm {
     this.books = [];
   }
 
-  // addBook
-  getData(data) {
+  addBook(data) {
     this.books.push(data);
   }
 
@@ -99,8 +97,8 @@ btnSubmitData.addEventListener("click", function (event) {
   const checkReadInput = document.getElementById("checkRead").checked;
 
   const book = new Book(titleInput, authorInput, nPagesInput, checkReadInput);
-  console.log(book);
-  data.getData(book);
+
+  data.addBook(book);
 
   data.resetForm();
 
