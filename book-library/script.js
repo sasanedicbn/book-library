@@ -30,7 +30,7 @@ class updateDom {
         <p class='author'>Author: <br/><b>${book.author}</b></p>
         <p class='numOfPages'>Numbers of pages: <br/><b>${book.numPages}</b></p>
         <div class='btns'>
-        <button>${book.read ? "Read" : "Not Read"}</button>
+        <button class="toggleRead">${book.read ? "Read" : "Not Read"}</button>
         <button class='delete'>Delete</button>
         <button>Change</button>
         </div>
@@ -51,6 +51,7 @@ class Book {
   }
   editReadStatus() {
     this.read = !this.read;
+    console.log(this.read);
   }
 }
 
@@ -79,6 +80,7 @@ class dataForm {
 
 const DOM = new updateDom();
 const data = new dataForm();
+const book = new Book();
 
 btnNewBook.addEventListener("click", function () {
   DOM.showForm(form, "show");
@@ -111,6 +113,8 @@ btnSubmitData.addEventListener("click", function (event) {
 
 parentofBooks.addEventListener("click", function (event) {
   const deleteButton = event.target.closest(".delete");
+  const toggleRead = event.target.closest(".toggleRead");
+  console.log(toggleRead);
   console.log(deleteButton);
   if (deleteButton) {
     const currentBook = deleteButton.closest(".book");
@@ -122,5 +126,7 @@ parentofBooks.addEventListener("click", function (event) {
     currentBook.remove();
 
     DOM.showBook(data.books);
+  }
+  if (toggleRead) {
   }
 });
