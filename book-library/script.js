@@ -116,5 +116,7 @@ parentofBooks.addEventListener("click", function (event) {
     const currentBook = deleteButton.closest(".book");
     console.log(currentBook);
     const id = currentBook.dataset.id;
+
+    data.deleteBook(id);
   }
 });
