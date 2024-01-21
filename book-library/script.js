@@ -112,4 +112,9 @@ btnSubmitData.addEventListener("click", function (event) {
 parentofBooks.addEventListener("click", function (event) {
   const deleteButton = event.target.closest(".delete");
   console.log(deleteButton);
+  if (deleteButton) {
+    const currentBook = deleteButton.closest(".book");
+    console.log(currentBook);
+    const id = currentBook.dataset.id;
+  }
 });
