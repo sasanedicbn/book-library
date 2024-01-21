@@ -3,11 +3,9 @@ const form = document.querySelector(".formado");
 const closeForm = document.querySelector("svg");
 const btnSubmitData = document.querySelector(".submit");
 const title = document.querySelector(".text__div");
+const parentofBooks = document.querySelector(".ul__list");
 
 class updateDom {
-  constructor(id) {
-    this.id = Math.floor(Math.random() * 100000);
-  }
   showForm(element, selector) {
     element.classList.add(selector);
   }
@@ -17,27 +15,42 @@ class updateDom {
   moveHeaderup(element, selector) {
     element.classList.add(selector);
   }
+  // books
   showBook(books) {
     const ulList = document.querySelector(".ul__list");
     ulList.innerHTML = "";
 
-    books.forEach((data) => {
-      const bookElement = document.createElement("div");
+    books.forEach((book) => {
+      const bookElement = document.createElement("li");
       bookElement.classList.add("book");
+      bookElement.dataset.id = book.id;
       bookElement.innerHTML = `
-      <li data-id="${this.id}">
-        <p class='title'>Title: <br/><b>${data.title}</b></p>
-        <p class='author'>Author: <br/><b>${data.author}</b></p>
-        <p class='numOfPages'>Numbers of pages: <br/><b>${data.numPages}</b></p>
+      <div>
+        <p class='title'>Title: <br/><b>${book.title}</b></p>
+        <p class='author'>Author: <br/><b>${book.author}</b></p>
+        <p class='numOfPages'>Numbers of pages: <br/><b>${book.numPages}</b></p>
         <div class='btns'>
-        <button>${data.read ? "Read" : "Not Read"}</button>
-        <button>Delete</button>
+        <button>${book.read ? "Read" : "Not Read"}</button>
+        <button class='delete'>Delete</button>
         <button>Change</button>
         </div>
-        </li>
+        </div>
       `;
       ulList.appendChild(bookElement);
     });
+  }
+}
+
+class Book {
+  id = crypto.randomUUID();
+  constructor(title, author, nPagesInput, read) {
+    this.title = title;
+    this.author = author;
+    this.nPagesInput = nPagesInput;
+    this.read = read;
+  }
+  editReadStatus() {
+    this.read = !this.read;
   }
 }
 
@@ -46,6 +59,7 @@ class dataForm {
     this.books = [];
   }
 
+  // addBook
   getData(data) {
     this.books.push(data);
   }
@@ -57,7 +71,9 @@ class dataForm {
     document.getElementById("checkRead").checked = false;
   }
   deleteBook(id) {
+    console.log("Prije brisanja:", this.books);
     this.books = this.books.filter((book) => book.id !== id);
+    console.log("Posle brisanja:", this.books);
   }
 }
 
@@ -80,20 +96,15 @@ btnSubmitData.addEventListener("click", function (event) {
   const nPagesInput = document.getElementById("nPages").value;
   const checkReadInput = document.getElementById("checkRead").checked;
 
-  const formData = {
-    title: titleInput,
-    author: authorInput,
-    numPages: nPagesInput,
-    read: checkReadInput,
-  };
-
-  data.getData(formData);
+  const book = new Book(titleInput, authorInput, nPagesInput, checkReadInput);
+  console.log(book);
+  data.getData(book);
 
   data.resetForm();
 
   DOM.hiddenForm(form, "show");
   DOM.moveHeaderup(title, "up");
   DOM.showBook(data.books);
-
+  //  attacheddeleteListener
   console.log(data.books);
 });
