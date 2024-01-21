@@ -135,6 +135,7 @@ parentofBooks.addEventListener("click", function (event) {
 
     if (bookToUpdate) {
       bookToUpdate.editReadStatus();
+      DOM.showBook(data.books);
     }
   }
 });
