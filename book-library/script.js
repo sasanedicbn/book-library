@@ -109,4 +109,7 @@ btnSubmitData.addEventListener("click", function (event) {
   console.log(data.books);
 });
 
-parentofBooks.addEventListener("click", function (event) {});
+parentofBooks.addEventListener("click", function (event) {
+  const deleteButton = event.target.closest(".delete");
+  console.log(deleteButton);
+});
