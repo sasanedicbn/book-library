@@ -128,5 +128,10 @@ parentofBooks.addEventListener("click", function (event) {
     DOM.showBook(data.books);
   }
   if (toggleRead) {
+    const currentBook = toggleRead.closest(".book");
+    const id = currentBook.dataset.id;
+
+  
+    }
   }
 });
