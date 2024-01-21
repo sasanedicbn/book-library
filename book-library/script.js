@@ -108,3 +108,5 @@ btnSubmitData.addEventListener("click", function (event) {
   //  attacheddeleteListener
   console.log(data.books);
 });
+
+parentofBooks.addEventListener("click", function (event) {});
