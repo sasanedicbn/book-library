@@ -136,4 +136,11 @@ function changesInBook() {
       }
     }
   }
+
+  return {
+    handleDeleteClick,
+    handleToggleReadClick,
+  };
 }
+
+const { handleDeleteClick, handleToggleReadClick } = changesInBook();
