@@ -132,5 +132,9 @@ parentofBooks.addEventListener("click", function (event) {
     const id = currentBook.dataset.id;
 
     const bookToUpdate = data.books.find((book) => book.id === id);
+
+    if (bookToUpdate) {
+      bookToUpdate.editReadStatus();
+    }
   }
 });
