@@ -109,31 +109,31 @@ btnSubmitData.addEventListener("click", function (event) {
   console.log(data.books);
 });
 
-parentofBooks.addEventListener("click", function (event) {
-  const deleteButton = event.target.closest(".delete");
-  const toggleRead = event.target.closest(".toggleRead");
-  console.log(toggleRead);
-  console.log(deleteButton);
-  if (deleteButton) {
-    const currentBook = deleteButton.closest(".book");
-    console.log(currentBook);
-    const id = currentBook.dataset.id;
+function changesInBook() {
+  function handleDeleteClick(event) {
+    const deleteButton = event.target.closest(".delete");
+    if (deleteButton) {
+      const currentBook = deleteButton.closest(".book");
+      const id = currentBook.dataset.id;
 
-    data.deleteBook(id);
-
-    currentBook.remove();
-
-    DOM.showBook(data.books);
-  }
-  if (toggleRead) {
-    const currentBook = toggleRead.closest(".book");
-    const id = currentBook.dataset.id;
-
-    const bookToUpdate = data.books.find((book) => book.id === id);
-
-    if (bookToUpdate) {
-      bookToUpdate.editReadStatus();
+      data.deleteBook(id);
+      currentBook.remove();
       DOM.showBook(data.books);
     }
   }
-});
+
+  function handleToggleReadClick(event) {
+    const toggleRead = event.target.closest(".toggleRead");
+    if (toggleRead) {
+      const currentBook = toggleRead.closest(".book");
+      const id = currentBook.dataset.id;
+
+      const bookToUpdate = data.books.find((book) => book.id === id);
+
+      if (bookToUpdate) {
+        bookToUpdate.editReadStatus();
+        DOM.showBook(data.books);
+      }
+    }
+  }
+}
