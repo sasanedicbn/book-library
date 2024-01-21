@@ -131,7 +131,6 @@ parentofBooks.addEventListener("click", function (event) {
     const currentBook = toggleRead.closest(".book");
     const id = currentBook.dataset.id;
 
-  
-    }
+    const bookToUpdate = data.books.find((book) => book.id === id);
   }
 });
