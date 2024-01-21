@@ -31,7 +31,7 @@ class updateDom {
         <div class='btns'>
         <button class="toggleRead">${book.read ? "Read" : "Not Read"}</button>
         <button class='delete'>Delete</button>
-        <button>Change</button>
+        <button class='change'>Change</button>
         </div>
         </div>
       `;
@@ -144,3 +144,8 @@ function changesInBook() {
 }
 
 const { handleDeleteClick, handleToggleReadClick } = changesInBook();
+
+parentofBooks.addEventListener("click", function (event) {
+  handleDeleteClick(event);
+  handleToggleReadClick(event);
+});
