@@ -118,5 +118,9 @@ parentofBooks.addEventListener("click", function (event) {
     const id = currentBook.dataset.id;
 
     data.deleteBook(id);
+
+    currentBook.remove();
+
+    DOM.showBook(data.books);
   }
 });
