@@ -43,6 +43,8 @@ class updateDom {
     document.getElementById("author").value = book.author;
     document.getElementById("nPages").value = book.nPagesInput;
     document.getElementById("checkRead").checked = book.read;
+
+    DOM.showForm(form, "show");
   }
 }
 
