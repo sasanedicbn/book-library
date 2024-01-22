@@ -142,6 +142,8 @@ function changesInBook() {
     if (changeBtn) {
       const currentBook = changeBtn.closest(".book");
       const id = currentBook.dataset.id;
+
+      const bookToUpdate = data.books.find((book) => book.id === id);
     }
   }
 
