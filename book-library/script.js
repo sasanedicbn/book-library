@@ -52,6 +52,7 @@ class Book {
     this.read = !this.read;
     console.log(this.read);
   }
+  editBook() {}
 }
 
 class dataForm {
@@ -136,16 +137,22 @@ function changesInBook() {
       }
     }
   }
+  function handleChangeBook(event) {
+    const changeBtn = event.target.closest(".change");
+  }
 
   return {
     handleDeleteClick,
     handleToggleReadClick,
+    handleChangeBook,
   };
 }
 
-const { handleDeleteClick, handleToggleReadClick } = changesInBook();
+const { handleDeleteClick, handleToggleReadClick, handleChangeBook } =
+  changesInBook();
 
 parentofBooks.addEventListener("click", function (event) {
   handleDeleteClick(event);
   handleToggleReadClick(event);
+  handleChangeBook(event);
 });
