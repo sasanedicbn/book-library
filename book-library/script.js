@@ -139,6 +139,10 @@ function changesInBook() {
   }
   function handleChangeBook(event) {
     const changeBtn = event.target.closest(".change");
+    if (changeBtn) {
+      const currentBook = changeBtn.closest(".book");
+      const id = currentBook.dataset.id;
+    }
   }
 
   return {
