@@ -38,6 +38,12 @@ class updateDom {
       ulList.appendChild(bookElement);
     });
   }
+  editBookDom(book) {
+    document.getElementById("title").value = book.title;
+    document.getElementById("author").value = book.author;
+    document.getElementById("nPages").value = book.nPagesInput;
+    document.getElementById("checkRead").checked = book.read;
+  }
 }
 
 class Book {
