@@ -152,6 +152,9 @@ function changesInBook() {
       const id = currentBook.dataset.id;
 
       const bookToUpdate = data.books.find((book) => book.id === id);
+      if (bookToUpdate) {
+        DOM.editBookDom(bookToUpdate);
+      }
     }
   }
 
