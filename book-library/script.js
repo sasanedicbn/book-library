@@ -143,7 +143,6 @@ btnSubmitData.addEventListener("click", function (event) {
   DOM.showBook(data.books);
 });
 
-//promjeniti naziv fun
 function changesInBook() {
   function handleDeleteClick(event) {
     const deleteButton = event.target.closest(".delete");
