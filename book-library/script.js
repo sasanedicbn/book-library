@@ -38,14 +38,6 @@ class updateDom {
       ulList.appendChild(bookElement);
     });
   }
-  editBookDom(book) {
-    document.getElementById("title").value = book.title;
-    document.getElementById("author").value = book.author;
-    document.getElementById("nPages").value = book.nPagesInput;
-    document.getElementById("checkRead").checked = book.read;
-
-    DOM.showForm(form, "show");
-  }
 }
 
 class Book {
@@ -61,9 +53,11 @@ class Book {
     this.read = !this.read;
   }
   isEditingBook(id) {
-    this.books;
-
-    //stara vrijednost u nova vrijednost
+    // if (book.id !== id) return;
+    if (!book.isEditing) {
+      this.isEditing = !this.isEditing;
+      DOM.editBookDom(book);
+    }
   }
 }
 
@@ -145,18 +139,6 @@ function changesInBook() {
     if (!bookToUpdate) throw new Error("No book with that id");
     bookToUpdate.editReadStatus();
     DOM.showBook(data.books);
-  }
-  function handleChangeBook(event) {
-    const changeBtn = event.target.closest(".change");
-    if (changeBtn) {
-      const currentBook = changeBtn.closest(".book");
-      const id = currentBook.dataset.id;
-
-      const bookToUpdate = data.books.find((book) => book.id === id);
-      if (bookToUpdate) {
-        DOM.editBookDom(bookToUpdate);
-      }
-    }
   }
 
   return {
