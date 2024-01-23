@@ -38,6 +38,14 @@ class updateDom {
       ulList.appendChild(bookElement);
     });
   }
+  editBookDom(books) {
+    console.log(book);
+    const ulList = document.querySelector(".ul__list");
+    ulList.innerHTML = "";
+
+    // if (books.id !== id) return;
+    console.log(books);
+  }
 }
 
 class Book {
