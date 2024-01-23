@@ -169,6 +169,26 @@ function changesInBook() {
     bookToUpdate.editReadStatus();
     DOM.showBook(data.books);
   }
+  function handleChangeBook(event) {
+    const changeBtn = event.target.closest(".change");
+    if (changeBtn) {
+      const currentBook = changeBtn.closest(".book");
+      const id = currentBook.dataset.id;
+
+      const bookToUpdate = data.books;
+      console.log(bookToUpdate);
+      if (!bookToUpdate) return;
+      console.log(bookToUpdate);
+      // const bookInstance = new Book(
+      //   bookToUpdate.title,
+      //   bookToUpdate.author,
+      //   bookToUpdate.nPagesInput,
+      //   bookToUpdate.read
+      // );
+      DOM.editBookDom(bookToUpdate);
+      // book.isEditingBook(id);
+    }
+  }
 
   return {
     handleDeleteClick,
