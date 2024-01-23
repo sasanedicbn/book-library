@@ -178,14 +178,8 @@ function changesInBook() {
       console.log(bookToUpdate);
       if (!bookToUpdate) return;
       console.log(bookToUpdate);
-      // const bookInstance = new Book(
-      //   bookToUpdate.title,
-      //   bookToUpdate.author,
-      //   bookToUpdate.nPagesInput,
-      //   bookToUpdate.read
-      // );
+
       DOM.editBookDom(bookToUpdate);
-      // book.isEditingBook(id);
     }
   }
 
