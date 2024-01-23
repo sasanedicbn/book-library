@@ -45,6 +45,27 @@ class updateDom {
 
     // if (books.id !== id) return;
     console.log(books);
+    books.forEach((book) => {
+      const bookElement = document.createElement("li");
+      bookElement.classList.add("book");
+      bookElement.dataset.id = book.id;
+      bookElement.innerHTML = `
+      <div>
+      <span class='title'>Title</span>
+        <input type='text' class='title'  value='${book.title}'/>
+      <span>Author</span>
+        <input type='text' class='author' value='${book.author}'/>
+        <span>Numbers of pages:</span>
+        <input type='text' class='numOfPages' value='${book.numPages}'/>
+        <div class='btns'>
+          <button class="toggleRead">${book.read ? "Read" : "Not Read"}</button>
+          <button class='delete'>Delete</button>
+          <button class='change'>Update</button>
+        </div>
+      </div>
+    `;
+      ulList.appendChild(bookElement);
+    });
   }
 }
 
