@@ -49,6 +49,7 @@ class updateDom {
 }
 
 class Book {
+  isEditing = false;
   id = crypto.randomUUID();
   constructor(title, author, nPagesInput, read) {
     this.title = title;
@@ -58,7 +59,11 @@ class Book {
   }
   editReadStatus() {
     this.read = !this.read;
-    console.log(this.read);
+  }
+  isEditingBook(id) {
+    this.books;
+
+    //stara vrijednost u nova vrijednost
   }
 }
 
@@ -81,10 +86,6 @@ class dataForm {
     console.log("Prije brisanja:", this.books);
     this.books = this.books.filter((book) => book.id !== id);
     console.log("Posle brisanja:", this.books);
-  }
-  updateBook(id) {
-    this.books = this.books.filter((book) => book.id === id);
-    //stara vrijednost u nova vrijednost
   }
 }
 
@@ -119,6 +120,7 @@ btnSubmitData.addEventListener("click", function (event) {
   DOM.showBook(data.books);
 });
 
+//promjeniti naziv fun
 function changesInBook() {
   function handleDeleteClick(event) {
     const deleteButton = event.target.closest(".delete");
@@ -134,17 +136,15 @@ function changesInBook() {
 
   function handleToggleReadClick(event) {
     const toggleRead = event.target.closest(".toggleRead");
-    if (toggleRead) {
-      const currentBook = toggleRead.closest(".book");
-      const id = currentBook.dataset.id;
+    if (!toggleRead) return;
+    const currentBook = toggleRead.closest(".book");
+    const id = currentBook.dataset.id;
 
-      const bookToUpdate = data.books.find((book) => book.id === id);
+    const bookToUpdate = data.books.find((book) => book.id === id);
 
-      if (bookToUpdate) {
-        bookToUpdate.editReadStatus();
-        DOM.showBook(data.books);
-      }
-    }
+    if (!bookToUpdate) throw new Error("No book with that id");
+    bookToUpdate.editReadStatus();
+    DOM.showBook(data.books);
   }
   function handleChangeBook(event) {
     const changeBtn = event.target.closest(".change");
