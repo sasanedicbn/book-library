@@ -60,7 +60,6 @@ class Book {
     this.read = !this.read;
     console.log(this.read);
   }
-  editBook() {}
 }
 
 class dataForm {
@@ -83,6 +82,7 @@ class dataForm {
     this.books = this.books.filter((book) => book.id !== id);
     console.log("Posle brisanja:", this.books);
   }
+  updateBook(id) {}
 }
 
 const DOM = new updateDom();
@@ -114,8 +114,6 @@ btnSubmitData.addEventListener("click", function (event) {
   DOM.hiddenForm(form, "show");
   DOM.moveHeaderup(title, "up");
   DOM.showBook(data.books);
-  //  attacheddeleteListener
-  console.log(data.books);
 });
 
 function changesInBook() {
@@ -142,6 +140,7 @@ function changesInBook() {
       if (bookToUpdate) {
         bookToUpdate.editReadStatus();
         DOM.showBook(data.books);
+        Book.updateBook(id);
       }
     }
   }
