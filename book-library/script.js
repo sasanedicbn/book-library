@@ -82,10 +82,8 @@ class Book {
     this.read = !this.read;
   }
   isEditingBook(id) {
-    // if (book.id !== id) return;
     if (!book.isEditing) {
       this.isEditing = !this.isEditing;
-      DOM.editBookDom(book);
     }
   }
 }
