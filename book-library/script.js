@@ -82,7 +82,10 @@ class dataForm {
     this.books = this.books.filter((book) => book.id !== id);
     console.log("Posle brisanja:", this.books);
   }
-  updateBook(id) {}
+  updateBook(id) {
+    this.books = this.books.filter((book) => book.id === id);
+    //stara vrijednost u nova vrijednost
+  }
 }
 
 const DOM = new updateDom();
@@ -140,7 +143,6 @@ function changesInBook() {
       if (bookToUpdate) {
         bookToUpdate.editReadStatus();
         DOM.showBook(data.books);
-        Book.updateBook(id);
       }
     }
   }
