@@ -26,7 +26,7 @@ class updateDom {
       bookElement.innerHTML = `
       ${
         book.isEditing
-          ? `<div>
+          ? `<form type="submit">
           <span class='title'>Title</span>
           <input type='text' class='title' value='${book.title}'/>
           <span>Author</span>
@@ -40,7 +40,7 @@ class updateDom {
             <button class='delete'>Delete</button>
             <button class='change'>Update</button>
           </div>
-        </div>`
+        </form>`
           : `<div>
           <p class='title'>Title: <br/><b>${book.title}</b></p>
           <p class='author'>Author: <br/><b>${book.author}</b></p>
