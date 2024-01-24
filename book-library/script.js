@@ -15,54 +15,49 @@ class updateDom {
   moveHeaderup(element, selector) {
     element.classList.add(selector);
   }
-  showBook(books) {
+  showBook() {
     const ulList = document.querySelector(".ul__list");
     ulList.innerHTML = "";
 
-    books.forEach((book) => {
+    data.books.forEach((book) => {
       const bookElement = document.createElement("li");
       bookElement.classList.add("book");
       bookElement.dataset.id = book.id;
       bookElement.innerHTML = `
-      <div>
-        <p class='title'>Title: <br/><b>${book.title}</b></p>
-        <p class='author'>Author: <br/><b>${book.author}</b></p>
-        <p class='numOfPages'>Numbers of pages: <br/><b>${book.numPages}</b></p>
-        <div class='btns'>
-        <button class="toggleRead">${book.read ? "Read" : "Not Read"}</button>
-        <button class='delete'>Delete</button>
-        <button class='change'>Change</button>
-        </div>
-        </div>
-      `;
+    </button>
+            <button class='delete'>Delete</button>
+            <button class='change'>Update</button>
+          </div>
+        </div>`
+          : `<div>
+          <p class='title'>Title: <br/><b>${book.title}</b></p>
+          <p class='author'>Author: <br/><b>${book.author}</b></p>
+          <p class='numOfPages'>Numbers of pages: <br/><b>${
+            book.numPages
+          }</b></p>
+          <div class='btns'>
+            <button class="toggleRead">${
+              book.read ? "Read" : "Not Read"
+            }</button>
+            <button class='delete'>Delete</button>
+            <button class='change'>Change</button>
+          </div>
+        </div>`
+      }`;
+
       ulList.appendChild(bookElement);
     });
   }
-  editBookDom(books) {
-    console.log(book);
+  editBookDom() {
     const ulList = document.querySelector(".ul__list");
     ulList.innerHTML = "";
 
-    // if (books.id !== id) return;
-    console.log(books);
-    books.forEach((book) => {
+    data.books.forEach((book) => {
       const bookElement = document.createElement("li");
       bookElement.classList.add("book");
       bookElement.dataset.id = book.id;
       bookElement.innerHTML = `
-      <div>
-      <span class='title'>Title</span>
-        <input type='text' class='title'  value='${book.title}'/>
-      <span>Author</span>
-        <input type='text' class='author' value='${book.author}'/>
-        <span>Numbers of pages:</span>
-        <input type='text' class='numOfPages' value='${book.numPages}'/>
-        <div class='btns'>
-          <button class="toggleRead">${book.read ? "Read" : "Not Read"}</button>
-          <button class='delete'>Delete</button>
-          <button class='change'>Update</button>
-        </div>
-      </div>
+      
     `;
       ulList.appendChild(bookElement);
     });
@@ -81,13 +76,11 @@ class Book {
   editReadStatus() {
     this.read = !this.read;
   }
-  isEditingBook(id) {
-    if (!book.isEditing) {
-      this.isEditing = !this.isEditing;
-    }
+  toggleisEditing(id) {
+    this.isEditing = !this.isEditing;
   }
 }
-
+// booklibrary
 class dataForm {
   constructor() {
     this.books = [];
@@ -141,6 +134,7 @@ btnSubmitData.addEventListener("click", function (event) {
   DOM.showBook(data.books);
 });
 
+// promjeni naziv
 function changesInBook() {
   function handleDeleteClick(event) {
     const deleteButton = event.target.closest(".delete");
@@ -168,17 +162,19 @@ function changesInBook() {
   }
   function handleChangeBook(event) {
     const changeBtn = event.target.closest(".change");
-    if (changeBtn) {
-      const currentBook = changeBtn.closest(".book");
-      const id = currentBook.dataset.id;
+    if (!changeBtn) return;
+    const currentBook = changeBtn.closest(".book");
+    const id = currentBook.dataset.id;
+    // reference u memoriji na oba hvata obrati paznju
+    const bookToUpdate = data.books.find((book) => book.id === id);
+    console.log(bookToUpdate.isEditing);
+    if (!bookToUpdate) return;
+    bookToUpdate.toggleisEditing();
+    console.log(bookToUpdate.isEditing);
 
-      const bookToUpdate = data.books;
-      console.log(bookToUpdate);
-      if (!bookToUpdate) return;
-      console.log(bookToUpdate);
-
-      DOM.editBookDom(bookToUpdate);
-    }
+    DOM.showBook();
+    console.log(bookToUpdate);
+    console.log(data.books);
   }
 
   return {
