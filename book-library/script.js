@@ -92,8 +92,8 @@ class Book {
     this.isEditing = !this.isEditing;
   }
 }
-// booklibrary
-class dataForm {
+
+class bookLibrary {
   constructor() {
     this.books = [];
   }
@@ -116,7 +116,7 @@ class dataForm {
 }
 
 const DOM = new updateDom();
-const data = new dataForm();
+const data = new bookLibrary();
 const book = new Book();
 
 btnNewBook.addEventListener("click", function () {
