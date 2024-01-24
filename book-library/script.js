@@ -26,7 +26,7 @@ class updateDom {
       bookElement.innerHTML = `
       ${
         book.isEditing
-          ? `<form type="submit">
+          ? `<form method="submit">
           <span class='title'>Title</span>
           <input type='text' class='inputTitle' value='${book.title}'/>
           <span>Author</span>
@@ -177,16 +177,26 @@ function changesInBook() {
     if (!changeBtn) return;
     const currentBook = changeBtn.closest(".book");
     const id = currentBook.dataset.id;
-    // reference u memoriji na oba hvata obrati paznju
-    const bookToUpdate = data.books.find((book) => book.id === id);
-    console.log(bookToUpdate.isEditing);
-    if (!bookToUpdate) return;
-    bookToUpdate.toggleisEditing();
-    console.log(bookToUpdate.isEditing);
 
-    DOM.showBook();
-    console.log(bookToUpdate);
-    console.log(data.books);
+    const bookToUpdate = data.books.find((book) => book.id === id);
+
+    if (!bookToUpdate) return;
+
+    // Update book values based on form input
+    const inputTitleElement = currentBook.querySelector(".inputTitle");
+    const inputAuthorElement = currentBook.querySelector(".inputAuthor");
+    const inputNumOfPagesElement =
+      currentBook.querySelector(".inputNumOfPages");
+
+    const inputTitle = inputTitleElement ? inputTitleElement.value : "";
+    const inputAuthor = inputAuthorElement ? inputAuthorElement.value : "";
+    const inputNumOfPages = inputNumOfPagesElement
+      ? inputNumOfPagesElement.value
+      : "";
+    // Toggle the editing mode
+    bookToUpdate.toggleisEditing();
+
+    DOM.showBook(data.books);
   }
 
   return {
