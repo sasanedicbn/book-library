@@ -38,9 +38,10 @@ class updateDom {
               book.read ? "Read" : "Not Read"
             }</button>
             <button class='delete'>Delete</button>
-            <button type='submit' class='change'>Update</button>
+            <button type='button' class='change'>Update</button>
           </div>
-        </form>`
+        </form>
+        `
           : `<div>
           <p class='title'>Title: <br/><b>${book.title}</b></p>
           <p class='author'>Author: <br/><b>${book.author}</b></p>
@@ -182,6 +183,7 @@ function changesInBook() {
 
     if (!bookToUpdate) return;
 
+    console.log(bookToUpdate);
     const inputTitleElement = currentBook.querySelector(".inputTitle");
     const inputAuthorElement = currentBook.querySelector(".inputAuthor");
     const inputNumOfPagesElement =
@@ -193,6 +195,10 @@ function changesInBook() {
       ? inputNumOfPagesElement.value
       : "";
 
+    bookToUpdate.title = inputTitle;
+    bookToUpdate.author = inputAuthor;
+    bookToUpdate.nPagesInput = inputNumOfPages;
+    console.log(bookToUpdate);
     console.log(inputTitle, inputAuthor, inputNumOfPages);
 
     bookToUpdate.toggleisEditing();
