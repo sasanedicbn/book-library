@@ -26,7 +26,7 @@ class updateDom {
       bookElement.innerHTML = `
       ${
         book.isEditing
-          ? `<form>
+          ? `<form method="submit">
           <span class='title'>Title</span>
           <input type='text' class='inputTitle' value='${book.title}'/>
           <span>Author</span>
@@ -38,7 +38,7 @@ class updateDom {
               book.read ? "Read" : "Not Read"
             }</button>
             <button class='delete'>Delete</button>
-            <button class='change'>Update</button>
+            <button type='submit' class='change'>Update</button>
           </div>
         </form>`
           : `<div>
@@ -88,7 +88,7 @@ class Book {
   editReadStatus() {
     this.read = !this.read;
   }
-  toggleisEditing(id) {
+  toggleisEditing() {
     this.isEditing = !this.isEditing;
   }
 }
@@ -182,7 +182,6 @@ function changesInBook() {
 
     if (!bookToUpdate) return;
 
-    // Update book values based on form input
     const inputTitleElement = currentBook.querySelector(".inputTitle");
     const inputAuthorElement = currentBook.querySelector(".inputAuthor");
     const inputNumOfPagesElement =
@@ -193,7 +192,9 @@ function changesInBook() {
     const inputNumOfPages = inputNumOfPagesElement
       ? inputNumOfPagesElement.value
       : "";
-    // Toggle the editing mode
+
+    console.log(inputTitle, inputAuthor, inputNumOfPages);
+
     bookToUpdate.toggleisEditing();
 
     DOM.showBook(data.books);
