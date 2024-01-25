@@ -80,10 +80,10 @@ class updateDom {
 class Book {
   isEditing = false;
   id = crypto.randomUUID();
-  constructor(title, author, nPagesInput, read) {
+  constructor(title, author, numPages, read) {
     this.title = title;
     this.author = author;
-    this.nPagesInput = nPagesInput;
+    this.numPages = numPages;
     this.read = read;
   }
   editReadStatus() {
@@ -133,10 +133,10 @@ btnSubmitData.addEventListener("click", function (event) {
 
   const titleInput = document.getElementById("title").value;
   const authorInput = document.getElementById("author").value;
-  const nPagesInput = document.getElementById("nPages").value;
+  const numPages = document.getElementById("nPages").value;
   const checkReadInput = document.getElementById("checkRead").checked;
 
-  const book = new Book(titleInput, authorInput, nPagesInput, checkReadInput);
+  const book = new Book(titleInput, authorInput, numPages, checkReadInput);
 
   data.addBook(book);
 
@@ -195,9 +195,11 @@ function changesInBook() {
       ? inputNumOfPagesElement.value
       : "";
 
-    bookToUpdate.title = inputTitle;
-    bookToUpdate.author = inputAuthor;
-    bookToUpdate.nPagesInput = inputNumOfPages;
+    bookToUpdate.title = inputTitle ? inputTitle : bookToUpdate.title;
+    bookToUpdate.author = inputAuthor ? inputAuthor : bookToUpdate.author;
+    bookToUpdate.numPages = inputNumOfPages
+      ? inputNumOfPages
+      : bookToUpdate.numPages;
     console.log(bookToUpdate);
     console.log(inputTitle, inputAuthor, inputNumOfPages);
 
