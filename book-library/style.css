@@ -50,9 +50,6 @@ body {
   transition: background-color 0.3s ease-in-out;
 }
 
-.button__new__book:hover {
-  background-color: #2980b9;
-}
 
 .list__div {
   position: absolute;

@@ -144,7 +144,18 @@ btnSubmitData.addEventListener("click", function (event) {
   DOM.showBook(data.books);
 });
 
+function changesInBook() {
+  function handleDeleteClick(event) {
+    const deleteButton = event.target.closest(".delete");
+    if (deleteButton) {
+      const currentBook = deleteButton.closest(".book");
+      const id = currentBook.dataset.id;
 
+      data.deleteBook(id);
+      currentBook.remove();
+      DOM.showBook(data.books);
+    }
+  }
 
   function handleToggleReadClick(event) {
     const toggleRead = event.target.closest(".toggleRead");
