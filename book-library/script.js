@@ -110,15 +110,12 @@ class bookLibrary {
     document.getElementById("checkRead").checked = false;
   }
   deleteBook(id) {
-    console.log("Prije brisanja:", this.books);
     this.books = this.books.filter((book) => book.id !== id);
-    console.log("Posle brisanja:", this.books);
   }
 }
 
 const DOM = new updateDom();
 const data = new bookLibrary();
-const book = new Book();
 
 btnNewBook.addEventListener("click", function () {
   DOM.showForm(form, "show");
@@ -147,7 +144,6 @@ btnSubmitData.addEventListener("click", function (event) {
   DOM.showBook(data.books);
 });
 
-// promjeni naziv
 function changesInBook() {
   function handleDeleteClick(event) {
     const deleteButton = event.target.closest(".delete");
@@ -183,7 +179,6 @@ function changesInBook() {
 
     if (!bookToUpdate) return;
 
-    console.log(bookToUpdate);
     const inputTitleElement = currentBook.querySelector(".inputTitle");
     const inputAuthorElement = currentBook.querySelector(".inputAuthor");
     const inputNumOfPagesElement =
@@ -200,8 +195,6 @@ function changesInBook() {
     bookToUpdate.numPages = inputNumOfPages
       ? inputNumOfPages
       : bookToUpdate.numPages;
-    console.log(bookToUpdate);
-    console.log(inputTitle, inputAuthor, inputNumOfPages);
 
     bookToUpdate.toggleisEditing();
 
